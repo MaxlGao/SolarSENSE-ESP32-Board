@@ -4,8 +4,8 @@
 
 # Helpful stuff
 
-Some github I just found: https://github.com/pesor/TTGO-T-HIGrow\
-Product page of the actual sensor: http://www.lilygo.cn/prod_view.aspx?TypeId=50033&Id=1172\
+Some github I just found: https://github.com/pesor/TTGO-T-HIGrow  
+Product page of the actual sensor: http://www.lilygo.cn/prod_view.aspx?TypeId=50033&Id=1172  
 Github with the sensor's original code (with instructions): https://github.com/Xinyuan-LilyGO/TTGO-HiGrow
 
 # Other notes
