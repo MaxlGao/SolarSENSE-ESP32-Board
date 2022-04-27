@@ -39,6 +39,8 @@
 #endif
 BluetoothSerial SerialBT;
 
+#define PIN
+
 typedef enum {
   DHTxx_SENSOR_ID,
   BHT1750_SENSOR_ID,
@@ -229,7 +231,7 @@ void setup() {
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
   Serial.begin(115200);
-  SerialBT.begin("ESP32test"); //Bluetooth device name
+  SerialBT.begin("Sensor Test"); //Bluetooth device name
   ledcSetup(ledChannel, freq, resolution);
   ledcAttachPin(5, ledChannel);
 
