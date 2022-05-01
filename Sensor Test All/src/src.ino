@@ -5,6 +5,18 @@
 
 // https://randomnerdtutorials.com/esp32-mqtt-publish-subscribe-arduino-ide/
 // https://randomnerdtutorials.com/testing-mosquitto-broker-and-client-on-raspbbery-pi/
+
+/*  TABLE OF CONTENTS
+ *  0 - References
+ *  1 - Imports
+ *  2 - Configurations
+ *  3 - MQTT
+ *  4 - Wifi
+ *  5 - Sensing
+ *  6 - Setup
+ *  7 - Loop
+ *  8 - Wire
+ */
 // ================================================================
 // ================ Section 1: Imports ============================
 // ================================================================
@@ -39,7 +51,7 @@
 #endif
 BluetoothSerial SerialBT;
 
-#define PIN
+#define PIDN
 
 typedef enum {
   DHTxx_SENSOR_ID,

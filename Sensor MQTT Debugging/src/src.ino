@@ -18,9 +18,9 @@
 #define WIFI_SSID               "SETUP-8801"
 #define WIFI_PASSWD             "filter5872chose"
 
-const int ledPin = 5;
+//const int ledPin = 5;
 // MQTT IP address
-const char* mqtt_server = "broker.mqttdashboard.com"; //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< IMPORTANT
+const char* mqtt_server = "127.0.0.1"; //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< IMPORTANT
 
 //sets up MQTT delivery point
 WiFiClient espClient;
@@ -31,11 +31,6 @@ int value = 0;
 
 float temperature = 0;
 float humidity = 0;
-
-// setting PWM properties
-const int freq = 5000;
-const int ledChannel = 0;
-const int resolution = 8;
 
 // ================================================================
 // ================ Section 3: MQTT ===============================
@@ -53,19 +48,17 @@ void callback(char* topic, byte* message, unsigned int length) {
   }
   Serial.println();
 
-  // Feel free to add more if statements to control more GPIOs with MQTT
-
   // If a message is received on the topic esp32/output, you check if the message is either "on" or "off". 
   // Changes the output state according to the message
   if (String(topic) == "esp32/output") {
     Serial.print("Changing output to ");
     if(messageTemp == "on"){
       Serial.println("on");
-      digitalWrite(ledPin, HIGH);
+      //digitalWrite(ledPin, HIGH);
     }
     else if(messageTemp == "off"){
       Serial.println("off");
-      digitalWrite(ledPin, LOW);
+      //digitalWrite(ledPin, LOW);
     }
   }
 }
@@ -115,16 +108,10 @@ void setup_wifi() {
 }
 
 // ================================================================
-// ================ Section 5: Sensing ============================
-// ================================================================
-
-// ================================================================
 // ================ Section 6: Setup ==============================
 // ================================================================
 
 void setup(){
-  ledcSetup(ledChannel, freq, resolution);
-  ledcAttachPin(ledPin, ledChannel);
   Serial.begin(115200);
   setup_wifi();
   client.setServer(mqtt_server, 1883);
